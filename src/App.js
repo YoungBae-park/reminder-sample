@@ -32,7 +32,7 @@ const data = {'title': 'hello'}
 let getResponse;
     const requestOptions = {
         method: 'POST',
-        mode: 'no-cors',
+        mode: 'cors',
         credentials: 'include',
         headers: { 'Contents-Type': 'application/json'},
        body: JSON.stringify(data)
