@@ -32,9 +32,7 @@ const data = {'title': 'hello'}
 let getResponse;
     const requestOptions = {
         method: 'POST',
-        mode: 'cors',
-        credentials: 'include',
-        headers: { 'Contents-Type': 'application/json'},
+        headers: { 'Contents-Type': 'text/plain;charset=utf-8'},
        body: JSON.stringify(data)
     };
 
@@ -67,7 +65,7 @@ let getResponse;
       console.log(returnVal);
       console.log("리턴밸류 종료")
       console.log("리턴벨류 헤더 "+returnVal.headers)
-     await fetch (returnVal.headerss)
+     await fetch (returnVal.headers)
       .then(Response => {console.log(Response.headers.location)}).catch(console.log("캐치영역"))
 
 
