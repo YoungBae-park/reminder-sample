@@ -8,8 +8,8 @@ const App = () => {
 
   const [beforeDateTime, setBeforeDateTime] = useState();
   const [intervalTimeText,setIntervalTimeText] = useState();
+ // const [timerId,setTimerId] = useState();
 const url = "https://script.google.com/macros/s/AKfycbygey9yu0fTzDGTjMtPk1XuLgmPJ7XysoQWkCBuWiuNpFvZxUJePWc2bx85dIzL0roM/exec"
-//const url = "https://script.google.com/macros/s/AKfycbyt8mCKyL3Asnos11sQW2RW1pJ_19pS4Um3W4DNdt8/dev"
 
 const data = {
     reqType: 'execution',
@@ -28,34 +28,40 @@ const data = {
           allowRedirects: false 
           }
         }).then(res => {
-        console.log('res : '+res.data );
-       // let beforeDateTime = res.data;
-         //setBeforeDateTime(new Date(res.data));
-         //const date = new Date();
-         console.log("dataparse : "+Date.parse(res.data))
-        // setBeforeDateTime(Date.parse(res.data));
-         console.log("beforeDateTime : "+beforeDateTime);
-         let now = new Date();
-         console.log('현재시간 : '+now+typeof(now));
-         const deffer = now - Date.parse(res.data);
-        setBeforeDateTime(res.data) ;
-         console.log('이전시간 : ' + beforeDateTime+ typeof(beforeDateTime));
-         console.log('시간차이 : '+ deffer);
-         const day = deffer/(1000*3600*24);
-         const hour = ((deffer%(1000*3600*24))/(1000*3600));
-         const minute = ((deffer%(1000*3600*24))%(1000*3600))/(1000*60);
-         setIntervalTimeText(Math.floor(day)+'일 '+Math.floor(hour)+'시 '+Math.floor(minute)+'분') ;
-         console.log("'"+beforeDateTime+"'"+typeof(beforeDateTime))
-         console.log(intervalTimeText+typeof(intervalTimeText));
-       
+   //     console.log('res : '+res.data );
+   //      console.log("dataparse : "+Date.parse(res.data))
+    //     console.log("beforeDateTime : "+beforeDateTime);
+
+         setBeforeDateTime(res.data) ;
+          setTime();
+  
       }).catch(err => {
         console.log(err)
       });
 
   }
   
+
+
+function setTime () {
+  let now = new Date();
+  //console.log('현재시간 : '+now+typeof(now));
+  const deffer = now - Date.parse(beforeDateTime);
+  //console.log('이전시간 : ' + beforeDateTime+ typeof(beforeDateTime));
+  //console.log('시간차이 : '+ deffer);
+  const day = deffer/(1000*3600*24);
+  const hour = ((deffer%(1000*3600*24))/(1000*3600));
+  const minute = ((deffer%(1000*3600*24))%(1000*3600))/(1000*60);
+  const second = ((deffer%(1000*3600*24))%(1000*3600))%(1000*60)/1000;
+  setIntervalTimeText(Math.floor(day)+'일 '+Math.floor(hour)+'시 '+Math.floor(minute)+'분'+Math.floor(second)+'초') ;
+  //console.log("'"+beforeDateTime+"'"+typeof(beforeDateTime))
+  //console.log(intervalTimeText+typeof(intervalTimeText));
+
+
+}
   // 페이지 바로 동작
 getValue();
+//setTimerId(setInterval(setTime,10000));
 
 // 현재시간 저장 요청
 async function onSave () {
@@ -65,8 +71,12 @@ async function onSave () {
       allowRedirects: false
     }
   }).then(res=> {
-  console.log('저장요청이 완료되었습니다.')
-  console.log(res);
+ // console.log('저장요청이 완료되었습니다.')
+ // console.log(res);
+  //clearInterval(timerId);
+  getValue();
+  setTime();
+  //setTimerId(setInterval(setTime,10000));
   }).catch(err => {
     console.log(err);
   })
