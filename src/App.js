@@ -42,9 +42,9 @@ const data = {
          console.log('이전시간 : ' + beforeDateTime+ typeof(beforeDateTime));
          console.log('시간차이 : '+ deffer);
          const day = deffer/(1000*3600*24);
-         const hour = ((deffer%(1000*36000*24))/(1000*3600));
+         const hour = ((deffer%(1000*3600*24))/(1000*3600));
          const minute = ((deffer%(1000*3600*24))%(1000*3600))/(1000*60);
-         setIntervalTimeText('경과시간 : ' +Math.floor(day)+'일 '+Math.floor(hour)+'시 '+Math.floor(minute)+'분') ;
+         setIntervalTimeText(Math.floor(day)+'일 '+Math.floor(hour)+'시 '+Math.floor(minute)+'분') ;
          console.log("'"+beforeDateTime+"'"+typeof(beforeDateTime))
          console.log(intervalTimeText+typeof(intervalTimeText));
        
