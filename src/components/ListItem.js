@@ -15,11 +15,9 @@ const ListItem = ({item, onDeleteRow, onReset}) => {
 
     useEffect(() => {
 
-    
-
         setIntervalTimeText(Math.floor(day)+'일 '+Math.floor(hour)+'시 '+Math.floor(minute)+'분'+Math.floor(second)+'초') ;
 
-    },[]);
+    },[day,hour, minute,second]);
 
 
     return (
