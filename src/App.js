@@ -193,42 +193,11 @@ async function onReset (id) {
 }
 
 return (
-
-  <div> 
-{/*         <div>직전 마지막 수행 시각 : {beforeDateTime}</div>
-          <div>경과시간 : {intervalTimeText}</div>
-            <button onClick={onSave}>초기화</button> 
-        <hr/>
-          <h3>&lt;입력란&gt;</h3><br/>
-          <form>
-            제목 : <input name='title' type = 'text' placeholder='제목을 입력 하세요.' value={title} onChange={onChangeTitle}/>
-            주기 : <input name='targetPeriod' type = 'text' placeholder='주기를 숫자로 입력하세요' value={targetPeriod} onChange={onChangeTargetPeriod}/>
-            <button type='submit'>생성</button>
-          </form> */}
-
-
-
-{
-
-
-
     <Template>
     <Insert onInsert={onInsert}/>
     <hr/>
     <List  items={items} onDeleteRow={onDeleteRow} onReset={onReset}/>
   </Template>
-
-  
-
-
-
-}
-
-</div>
-
-
-
-
   );
 
 }
