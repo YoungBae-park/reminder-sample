@@ -23,7 +23,8 @@
     "start": "react-scripts start",
     "build": "babel src -d lib",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "babel-version": "babel --version"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "@types/google-spreadsheet": "^3.3.2",
-    "google-spreadsheet": "^3.3.0"
+    "google-spreadsheet": "^3.3.0",
+    "babel-cli": "^6.6.5"
   }
 }
