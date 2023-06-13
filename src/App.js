@@ -2,7 +2,7 @@ import './App.css';
 import React , {useState, useEffect} from 'react';
 import axios from 'axios';
 import List from './components/List';
-import Template from './components/Template';
+//import Template from './components/Template';
 import Insert from './components/Insert';
 
 
@@ -188,11 +188,11 @@ async function onReset (id) {
 }
 
 return (
-  <Template>
-    <Insert onInsert={onInsert}/>
-    <hr/>
-    <List  items={items} onDeleteRow={onDeleteRow} onReset={onReset}/>
-  </Template>
+  <div>
+  <Insert onInsert={onInsert}/>
+  <hr/>
+  <List  items={items} onDeleteRow={onDeleteRow} onReset={onReset}/>
+  </div>
   );
 
 }
