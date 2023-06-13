@@ -103,7 +103,7 @@ const App = () => {
       // 페이지 바로 동작
       useEffect(() => {
         getValue();
-      },[])
+      },[items.length])
 
 
 /* function setTime () {

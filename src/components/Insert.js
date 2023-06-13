@@ -28,7 +28,7 @@ const Insert = ({onInsert}) => {
             // 이를 방지하기 위해 이 함수를 호출합니다.
             e.preventDefault();
         },
-        [onInsert, title, targetPeriod],
+        [onInsert, targetPeriod, title],
     );
 
 
