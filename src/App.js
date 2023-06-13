@@ -103,7 +103,7 @@ const App = () => {
       // 페이지 바로 동작
       useEffect(() => {
         getValue();
-      },[items.length])
+      },[]);
 
 
 /* function setTime () {
@@ -146,6 +146,7 @@ async function onDeleteRow (id) {
     }
   }).then(res=> {
     setItems(res.data);
+    getValue();
     console.log("행이 제거됐는지 확인하세요. 다음은 응답값입니다. >>>"+res.data);
   }).catch(err => {
     console.log('에러발생')
@@ -162,6 +163,7 @@ async function onInsert (title, targetPeriod) {
     }
   }).then(res=> {
     setItems(res.data);
+    getValue();
     console.log("행이 추가됐는지 확인하세요. 다음은 응답값입니다. >>>"+res.data);
   }).catch(err => {
     console.log('에러발생')
@@ -180,6 +182,7 @@ async function onReset (id) {
     }
   }).then(res=> {
     setItems(res.data);
+    getValue();
     console.log("행이 초기화됐는지 확인하세요. 다음은 응답값입니다. >>>"+res.data);
   }).catch(err => {
     console.log('에러발생')
