@@ -1,11 +1,9 @@
 import './App.css';
 import React , {useState, useEffect} from 'react';
 import axios from 'axios';
-import List from './components/List'
-import Template from './components/Template'
-import Insert from './components/Insert'
-//  import AddItem from './pages/AddItems';
-// import Insert from './components/Insert';
+import List from './components/List';
+import Template from './components/Template';
+import Insert from './components/Insert';
 
 
 
@@ -13,14 +11,11 @@ import Insert from './components/Insert'
 const App = () => {
   console.log('App 함수 도입부분');
   const url = "https://script.google.com/macros/s/AKfycbygey9yu0fTzDGTjMtPk1XuLgmPJ7XysoQWkCBuWiuNpFvZxUJePWc2bx85dIzL0roM/exec"
-  //const [remain, setRemain] = useState(0);
  
  console.log('remain type 도입부 : '+typeof(remain));
 
  
   const [items, setItems] = useState();
-
- // const [timerId,setTimerId] = useState();
 
 
 /* const data = {
@@ -55,9 +50,9 @@ const App = () => {
   async function getValue (){
 
   console.log('getValue 함수 실행 시작부분')
-    await axios.post(url,{ reqType: 'execution'},{
-          headers: {
-              "Content-Type": "text/plain;charset=utf-8",
+    await axios.post(url,{reqType: 'execution'},{
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
             allowRedirects: false 
     }}).then(res => {
       console.log('요청이 성공적입니다.')
