@@ -47,7 +47,7 @@ const ListItem = ({item, onDeleteRow, onReset}) => {
     return (
         <div className="TodoListItem">
             
-                <div className="text">{title}&#40;주기:{period}&#41; 저장시각 : {last_time} </div>
+                <div className="text">{title}&#40;주기:{period}&#41; // 저장시각 : {last_time} </div>
                 <div>경과시간:{intervalTimeText} </div>
                 <div>남은시간:{remainDateTime}</div>
             <button onClick={() => onDeleteRow(id)}>

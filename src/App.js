@@ -193,7 +193,7 @@ async function onReset (id) {
 }
 
 return (
-    <Template>
+  <Template>
     <Insert onInsert={onInsert}/>
     <hr/>
     <List  items={items} onDeleteRow={onDeleteRow} onReset={onReset}/>
