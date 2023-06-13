@@ -1,4 +1,4 @@
-import React, { useState,useEffect} from 'react';
+import React from 'react';
 
 const ListItem = ({item, onDeleteRow, onReset}) => {
     const {id, title, period, last_time, intervalTimeText, remainDateTime } = item;

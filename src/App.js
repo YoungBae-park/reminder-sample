@@ -13,8 +13,8 @@ import Insert from './components/Insert'
 const App = () => {
   console.log('App 함수 도입부분');
   const url = "https://script.google.com/macros/s/AKfycbygey9yu0fTzDGTjMtPk1XuLgmPJ7XysoQWkCBuWiuNpFvZxUJePWc2bx85dIzL0roM/exec"
-  const [remain, setRemain] = useState(0);
- console.log('remain도입부 : '+remain);
+  //const [remain, setRemain] = useState(0);
+ 
  console.log('remain type 도입부 : '+typeof(remain));
 
  
@@ -80,7 +80,6 @@ const App = () => {
           // setRemain(item.period*1000*3600*24-deffer);
         }
       
-        console.log('remain : '+remain);
         const day = deffer/(1000*3600*24);
         const hour = ((deffer%(1000*3600*24))/(1000*3600));
         const minute = ((deffer%(1000*3600*24))%(1000*3600))/(1000*60);
