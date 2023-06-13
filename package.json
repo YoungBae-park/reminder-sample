@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "babel src -d lib",
+    "build": "yarn build",
     "test": "jest",
     "eject": "react-scripts eject",
     "babel-version": "babel --version"
