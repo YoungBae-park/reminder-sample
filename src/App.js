@@ -13,8 +13,9 @@ import Insert from './components/Insert'
 const App = () => {
   console.log('App 함수 도입부분');
   const url = "https://script.google.com/macros/s/AKfycbygey9yu0fTzDGTjMtPk1XuLgmPJ7XysoQWkCBuWiuNpFvZxUJePWc2bx85dIzL0roM/exec"
-
-
+  const [remain, setRemain] = useState(0);
+ console.log('remain도입부 : '+remain);
+ console.log('remain type 도입부 : '+typeof(remain));
 
  
   const [items, setItems] = useState();
@@ -52,6 +53,7 @@ const App = () => {
   } */
   
   async function getValue (){
+
   console.log('getValue 함수 실행 시작부분')
     await axios.post(url,{ reqType: 'execution'},{
           headers: {
@@ -60,6 +62,41 @@ const App = () => {
     }}).then(res => {
       console.log('요청이 성공적입니다.')
          console.log(res.data[1]) ;
+      // eslint-disable-next-line array-callback-return
+      res.data.map(item => {
+        //////////////////    item  시작  //////////
+        const now = new Date();
+        const deffer = now - Date.parse(item.last_time);
+        console.log('조건문 검증(item.period) : '+item.period*1000*3600*24)
+        console.log('조건문 검증(deffer) : '+deffer);
+        console.log('type(item.period) : '+typeof(item.period*1000*3600*24))
+        console.log('type(deffer) : '+typeof(deffer));
+        if ((item.period*1000*3600*24-deffer) < 0) { 
+          console.log('if문에 들어왔습니다.')
+          item.remain = 0;
+        }else{
+          console.log('else에 들어왔습니다.item.period*1000*3600*24-deffer 의 type은?? '+typeof(item.period*1000*3600*24-deffer))
+          item.remain = item.period*1000*3600*24-deffer;
+          // setRemain(item.period*1000*3600*24-deffer);
+        }
+      
+        console.log('remain : '+remain);
+        const day = deffer/(1000*3600*24);
+        const hour = ((deffer%(1000*3600*24))/(1000*3600));
+        const minute = ((deffer%(1000*3600*24))%(1000*3600))/(1000*60);
+        const second = ((deffer%(1000*3600*24))%(1000*3600))%(1000*60)/1000;
+
+        const remain_day = item.remain/(1000*3600*24);
+        const remain_hour = ((item.remain%(1000*3600*24))/(1000*3600));
+        const remain_minute = ((item.remain%(1000*3600*24))%(1000*3600))/(1000*60);
+        const remain_second = ((item.remain%(1000*3600*24))%(1000*3600))%(1000*60)/1000;
+        
+            item.intervalTimeText = Math.floor(day)+'일 '+Math.floor(hour)+'시 '+Math.floor(minute)+'분'+Math.floor(second)+'초' ;
+            item.remainDateTime = Math.floor(remain_day)+'일 '+Math.floor(remain_hour)+'시 '+Math.floor(remain_minute)+'분'+Math.floor(remain_second)+'초' ;
+
+            //////////////////    item  끝  //////////
+    })
+
        setItems(res.data);
   
       }).catch(err => {
